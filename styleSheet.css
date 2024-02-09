@@ -22,6 +22,11 @@ header{
     gap: 15px;
 }
 
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,25%));
+}
+
 h1{
     color: white;
     margin: 0;
@@ -29,7 +34,6 @@ h1{
 
 dialog{
     position: absolute;
-    top: 30%;
 }
 
 label{
