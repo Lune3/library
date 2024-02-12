@@ -1,4 +1,5 @@
 const books = [];
+let counter = 0;
 
 function Book(author,title,pages,read){
     this.author = author;
@@ -24,16 +25,25 @@ submitButton.addEventListener(("click"),(e) => {
     dialog.close();
     const book = new Book(authorName.value,bookTitle.value,pages.value,read.value);
     books.push(book);
-    displayChild(authorName.value,bookTitle.value,pages.value,read.value);
+    displayChild();
 })
 
 function displayChild(){
+    const bookAdded = books[books.length - 1];
     const template = document.querySelector("template").content.cloneNode(true);
     const section = document.querySelector("section");
     section.appendChild(template);
     const description = document.querySelectorAll("p");
-    const bookAdded = books[books.length - 1];
-    description[0].textContent = `${bookAdded.author}`;
+    description.forEach(node => {
+        node.className = `b${counter}`;
+    });
+    const currentBook = document.querySelectorAll(`.b${counter}`);
+    let updater = 0;
+    for (const key in bookAdded) {
+        currentBook[updater].textContent = `${bookAdded[key]}`;
+        updater++;
+    }
+    counter++;
 }
 
 
