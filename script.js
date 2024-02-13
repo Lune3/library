@@ -31,8 +31,11 @@ submitButton.addEventListener(("click"),(e) => {
         const book = new Book(authorName.value,bookTitle.value,pages.value,0);
         books.push(book);
     }
-    displayChild();
-    dialog.close();
+    document.querySelector("form").checkValidity();
+    if(document.querySelector("form").reportValidity()){
+        displayChild();
+        dialog.close();
+    }
 })
 
 function displayChild(){
@@ -46,7 +49,17 @@ function displayChild(){
     const bookDescription = newBook.querySelectorAll(`p`);
     let updater = 0;
     for (const key in bookAdded) {
+        if(key === "read"){
+            if(bookAdded[key]){
+                bookDescription[updater].textContent = "read";
+            }
+            else{
+                bookDescription[updater].textContent = "Not read"
+            }
+        }
+        else{
         bookDescription[updater].textContent = bookAdded[key];
+        }
         updater++;
     }
     counter++;
