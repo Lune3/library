@@ -20,12 +20,19 @@ addButton.addEventListener(("click"),() =>{
     dialog.showModal();
 })
 
+
 submitButton.addEventListener(("click"),(e) => {
     e.preventDefault();
-    dialog.close();
-    const book = new Book(authorName.value,bookTitle.value,pages.value,read.value);
-    books.push(book);
+    if(read.checked){
+        const book = new Book(authorName.value,bookTitle.value,pages.value,1);
+        books.push(book);
+    }
+    else{
+        const book = new Book(authorName.value,bookTitle.value,pages.value,0);
+        books.push(book);
+    }
     displayChild();
+    dialog.close();
 })
 
 function displayChild(){

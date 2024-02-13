@@ -24,7 +24,7 @@ header{
 
 section{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,300px));
+    grid-template-columns: repeat(auto-fit,minmax(150px,10%));
 }
 
 svg{
