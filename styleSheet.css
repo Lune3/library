@@ -3,6 +3,11 @@ body{
     margin: 0;
     padding: 0;
 }
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
 .main{
     display: grid;
@@ -39,9 +44,17 @@ h1{
 
 dialog{
     position: absolute;
+    border-radius: 10px;
+}
+
+dialog form ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 label{
     display: block;
 }
+
 
