@@ -79,10 +79,9 @@ function checkForDelete(){
         svg.addEventListener(("click"),(e) => {
             const bookToBeDeleted = e.target.parentNode.parentNode;
             bookToBeDeleted.remove();
-            const bookIndex = bookToBeDeleted.className;
-            console.log(bookIndex);
-            // bookIndex = bookIndex.charAt(bookIndex.length - 1);
-            // books.splice(bookIndex,1);
+            let bookIndex = bookToBeDeleted.className;
+            bookIndex = parseInt(bookIndex.charAt(bookIndex.length - 1));
+            books.splice(bookIndex,1);
         })
     });
 }
