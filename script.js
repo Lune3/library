@@ -64,20 +64,28 @@ function displayChild(){
         }
         updater++;
     }
+    const bookNumber = newBook.querySelector(`.number`);
+    bookNumber.textContent = `${counter}`;
     counter++;
 }
 
 section.addEventListener(("click") , () => {
-    if(books.length > 0){
-        const svg = document.querySelectorAll("svg");
-        svg.forEach(del => {
-            del.addEventListener(("click"), (e) => {
-                const bookToBeDel = e.target.parentNode.parentNode;
-                bookToBeDel.remove();
-            })
-        });
-    }
+    checkForDelete();
 })
+
+function checkForDelete(){
+    const deleteSVG = document.querySelectorAll("svg");
+    deleteSVG.forEach(svg => {
+        svg.addEventListener(("click"),(e) => {
+            const bookToBeDeleted = e.target.parentNode.parentNode;
+            bookToBeDeleted.remove();
+            const bookIndex = bookToBeDeleted.className;
+            console.log(bookIndex);
+            // bookIndex = bookIndex.charAt(bookIndex.length - 1);
+            // books.splice(bookIndex,1);
+        })
+    });
+}
 
 
 

@@ -29,7 +29,8 @@ header{
 
 section{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,10%));
+    grid-template-columns: repeat(auto-fit,minmax(150px,12%));
+    gap: 25px;
 }
 
 svg{
@@ -55,6 +56,29 @@ dialog form ul{
 
 label{
     display: block;
+}
+
+section div{
+    padding: 5px;
+
+}
+
+section > div div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+section > div div:nth-child(2) ul{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.number{
+    align-self: center;
+    font-size: 1.5rem;
 }
 
 
